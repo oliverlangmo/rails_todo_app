@@ -1,0 +1,13 @@
+<%= link_to "New Todo Item", new_todo_path %>
+
+<h1>Look at these tasks!</h1>
+<h3>Better get to it</h3>
+
+<% @todos.each do |todo| %>
+     <li>
+       <%= link_to todo.title, todo_path(todo.id)%>
+       <%= link_to 'edit', edit_todo_path(todo[:id]) %>
+       <%= link_to 'delete', todo, method: :delete, data:{confirm:"Delete this task?"} %>
+     </li>
+
+     <%end%>
